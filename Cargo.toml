@@ -1,3 +1,19 @@
 [package]
-name = "rustyactor"
+name = "actress"
 version = "0.1.0"
+
+[[bin]]
+name = "simple_one_way"
+path = "src/simple_one_way.rs"
+
+[[bin]]
+name = "simple_two_way"
+path = "src/simple_two_way.rs"
+
+[[bin]]
+name = "stateful_one_way"
+path = "src/stateful_one_way.rs"
+
+[[bin]]
+name = "stateful_two_way"
+path = "src/stateful_two_way.rs"
