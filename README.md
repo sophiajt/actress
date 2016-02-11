@@ -35,8 +35,8 @@ impl actress::Actor for SimpleActor {
 Finally, spawn and use your new actor
 
 ```Rust
-let null_actor = NullActor;
-let actor = actress::spawn(null_actor);
+let simple_actor = SimpleActor { state: 1 };
+let actor = actress::spawn(simple_actor);
 actor.send(10);
 ```
 
