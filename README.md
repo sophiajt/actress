@@ -5,9 +5,9 @@ A simple actor library in Rust.  Still pre-1.0 aka "not really ready for primeti
 
 Actress leverages much of what already comes with Rust and is based around the idea that your data and your structures are central.
 
-To this end, Acress supports one trait, called ```Actor``` that represents the minimal requirements on your data types to be used in the actor system.  Once you pass a value that meets these requirements into spawn, the system effectively turns your data structure into an actor/active object.  After doing so, it hands you the channel end-point that you can communicate with the actor.
+To this end, Acress supports one trait, called ```Actor```, that represents the minimal requirements on your data types to be used in the actor system.  Once you pass a value that meets these requirements into spawn, the system turns your data structure into an actor/active object.  After doing so, it hands you the channel end-point that you can communicate with it.
 
-Once an actor is spawned, you can't have any more direct interaction with it.  In essence, it becomes isolated thanks to Rust's type system, effectively making all communication with it to asynchronous.
+Once an actor is spawned, you can't have any more direct interaction with it.  In essence, it becomes isolated (thanks to Rust's type system!), effectively making all communication with it asynchronous.
 
 Another key feature is that communicating with the actors is all-in-one via the message channels.  That is, the end-point you get when you spawn an actor serves as a way of also detecting the health of an actor.  If an actor has closed its side of the channel, then this will be detectable as you drain the messages.
 
