@@ -1,19 +1,15 @@
 [package]
 name = "actress"
 version = "0.1.0"
-
-[[bin]]
-name = "simple_one_way"
-path = "src/simple_one_way.rs"
-
-[[bin]]
-name = "simple_two_way"
-path = "src/simple_two_way.rs"
-
-[[bin]]
-name = "stateful_one_way"
-path = "src/stateful_one_way.rs"
-
-[[bin]]
-name = "stateful_two_way"
-path = "src/stateful_two_way.rs"
+authors = ["Jonathan Turner"]
+license = "MIT/Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/jonathandturner/actress"
+homepage = "https://github.com/jonathandturner/actress"
+description = """
+A simple actor library for Rust
+"""
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+]
