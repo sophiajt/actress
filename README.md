@@ -40,51 +40,8 @@ let actor = actress::spawn(simple_actor);
 actor.send(10);
 ```
 
-# Examples
+# Example: two-way echo
 
-## One-way echo 
-
-```Rust
-use actress;
-
-use std::sync::mpsc::{SendError};
-
-enum Message { Ping }
-
-struct EchoActor;
-
-impl actress::Actor for EchoActor {
-    type MessageType = Message;
-
-    fn recv(&mut self, msg: Self::MessageType) -> bool {
-        match msg {
-            Message::Ping => { println!("Pong!"); true }
-        }
-    }
-}
-
-fn act() -> Result<(), SendError<Message>> {
-    let echo_actor = EchoActor;
-
-    let (actor, handle) = actress::spawn_with_handle(echo_actor);
-
-    println!("Ping!");
-    try!(actor.send(Message::Ping));
-
-    handle.join().unwrap();
-
-    Ok(())
-}
-
-fn main() {
-    match act() {
-        Ok(_) => println!("Message sends complete"),
-        _ => println!("Message sends had errors")
-    }
-}
-```
-
-## Two-way echo
 ```rust
 use actress;
 
