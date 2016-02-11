@@ -45,7 +45,7 @@ actor.send(10);
 ## One-way echo 
 
 ```Rust
-extern crate actress;
+use actress;
 
 use std::sync::mpsc::{SendError};
 
