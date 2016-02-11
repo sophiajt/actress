@@ -9,7 +9,7 @@ struct Counter {
     state: i32
 }
 
-impl actress::Recv for Counter {
+impl actress::Actor for Counter {
     type MessageType = Command;
 
     fn recv(&mut self, msg: Self::MessageType) -> bool {

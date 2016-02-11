@@ -6,7 +6,7 @@ enum Message { Ping(Sender<Message>), Pong }
 
 struct NullActor;
 
-impl actress::Recv for NullActor {
+impl actress::Actor for NullActor {
     type MessageType = Message;
 
     fn recv(&mut self, msg: Self::MessageType) -> bool {
