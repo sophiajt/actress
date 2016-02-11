@@ -16,7 +16,7 @@ Another key feature is that communicating with the actors is all-in-one via the 
 Include the actress library
 
 ```Rust
-use actress
+extern crate actress;
 ```
 
 Then, implement the Actor trait on your struct
@@ -43,7 +43,7 @@ actor.send(10);
 # Example: two-way echo
 
 ```rust
-use actress;
+extern crate actress;
 
 use std::sync::mpsc::{Sender, SendError, channel};
 
