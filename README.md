@@ -51,9 +51,9 @@ use std::sync::mpsc::{SendError};
 
 enum Message { Ping }
 
-struct NullActor;
+struct EchoActor;
 
-impl actress::Actor for NullActor {
+impl actress::Actor for EchoActor {
     type MessageType = Message;
 
     fn recv(&mut self, msg: Self::MessageType) -> bool {
@@ -64,9 +64,9 @@ impl actress::Actor for NullActor {
 }
 
 fn act() -> Result<(), SendError<Message>> {
-    let null_actor = NullActor;
+    let echo_actor = EchoActor;
 
-    let (actor, handle) = actress::spawn_with_handle(null_actor);
+    let (actor, handle) = actress::spawn_with_handle(echo_actor);
 
     println!("Ping!");
     try!(actor.send(Message::Ping));
@@ -92,9 +92,9 @@ use std::sync::mpsc::{Sender, SendError, channel};
 
 enum Message { Ping(Sender<Message>), Pong }
 
-struct NullActor;
+struct EchoActor;
 
-impl actress::Actor for NullActor {
+impl actress::Actor for EchoActor {
     type MessageType = Message;
 
     fn recv(&mut self, msg: Self::MessageType) -> bool {
@@ -106,11 +106,11 @@ impl actress::Actor for NullActor {
 }
 
 fn act() -> Result<(), SendError<Message>> {
-    let null_actor = NullActor;
+    let echo_actor = EchoActor;
 
     let (response_tx, response_rx) = channel();
 
-    let actor = actress::spawn(null_actor);
+    let actor = actress::spawn(echo_actor);
     try!(actor.send(Message::Ping(response_tx)));
 
     match response_rx.recv() {
