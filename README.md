@@ -85,7 +85,7 @@ fn main() {
 ```
 
 ## Two-way echo
-```
+```rust
 extern crate actress;
 
 use std::sync::mpsc::{Sender, SendError, channel};
